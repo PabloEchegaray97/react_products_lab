@@ -7,13 +7,14 @@ const ListaDeProductos = () => {
     }
     const [productos, setProductos] = useState([]);
     useEffect(() => {
-        obtenerProductos().then((productos) => setProductos(productos));
+        obtenerProductos().then((lista) => setProductos(lista))
+        
     }, []);
-
+    console.log(productos)
     return (
         <div>
             <h1>Lista de productos:</h1>
-            <ul>
+            <ul className="lista-productos">
                 {productos.map((producto) => (
                     <Producto key= {producto.id} nombre = {producto.nombre} precio = {producto.precio} descripcion = {producto.descripcion} img = {producto.img}></Producto>
                 ))}
